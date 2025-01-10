@@ -1,0 +1,30 @@
+python3 python/main.py --profile resnet50-tf --model "/mnt/arjun/CM/repos/local/cache/9d5cb36d8e63432c/resnet50_v1.pb" --dataset-path /mnt/arjun/CM/repos/local/cache/715c20aae48e4e35 --output "/mnt/arjun/CM/repos/local/cache/c576bf186bf34a2a/test_results/gh_ubuntu-latest_x86-reference-cpu-tf-v2.18.0-default_config/resnet50/offline/accuracy" --scenario Offline --count 500 --threads 32 --user_conf /home/arjun/CM/repos/gateoverflow@cm4mlops/script/generate-mlperf-inference-user-conf/tmp/cad56842a71140f2b4508d00e201449c.conf --accuracy --use_preprocessed_dataset --cache_dir /mnt/arjun/CM/repos/local/cache/715c20aae48e4e35 --dataset-list /mnt/arjun/CM/repos/local/cache/61d6fea01f264d8a/data/val.txt
+INFO:main:Namespace(dataset='imagenet', dataset_path='/mnt/arjun/CM/repos/local/cache/715c20aae48e4e35', dataset_list='/mnt/arjun/CM/repos/local/cache/61d6fea01f264d8a/data/val.txt', data_format=None, profile='resnet50-tf', scenario='Offline', max_batchsize=32, model='/mnt/arjun/CM/repos/local/cache/9d5cb36d8e63432c/resnet50_v1.pb', output='/mnt/arjun/CM/repos/local/cache/c576bf186bf34a2a/test_results/gh_ubuntu-latest_x86-reference-cpu-tf-v2.18.0-default_config/resnet50/offline/accuracy', inputs=['input_tensor:0'], outputs=['ArgMax:0'], backend='tensorflow', device=None, model_name='resnet50', threads=32, qps=None, cache=0, cache_dir='/mnt/arjun/CM/repos/local/cache/715c20aae48e4e35', preprocessed_dir=None, use_preprocessed_dataset=True, accuracy=True, find_peak_performance=False, debug=False, user_conf='/home/arjun/CM/repos/gateoverflow@cm4mlops/script/generate-mlperf-inference-user-conf/tmp/cad56842a71140f2b4508d00e201449c.conf', audit_conf='audit.config', time=None, count=500, performance_sample_count=None, max_latency=None, samples_per_query=8)
+2024-12-10 01:25:04.856449: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-12-10 01:25:04.864556: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1733774104.873046 2270080 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1733774104.875808 2270080 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-10 01:25:04.885424: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+INFO:imagenet:Loading 500 preprocessed images using 32 threads
+INFO:imagenet:loaded 500 images, cache=0, already_preprocessed=True, took=0.0sec
+WARNING:tensorflow:From /mnt/arjun/CM/repos/local/cache/cb105b2295e34b99/inference/vision/classification_and_detection/python/backend_tf.py:55: FastGFile.__init__ (from tensorflow.python.platform.gfile) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.gfile.GFile.
+WARNING:tensorflow:From /home/arjun/cm/lib/python3.12/site-packages/tensorflow/python/tools/strip_unused_lib.py:84: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This API was designed for TensorFlow v1. See https://www.tensorflow.org/guide/migrate for instructions on how to migrate your code to TensorFlow v2.
+WARNING:tensorflow:From /home/arjun/cm/lib/python3.12/site-packages/tensorflow/python/tools/optimize_for_inference_lib.py:138: remove_training_nodes (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This API was designed for TensorFlow v1. See https://www.tensorflow.org/guide/migrate for instructions on how to migrate your code to TensorFlow v2.
+2024-12-10 01:25:26.462449: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-12-10 01:25:26.462465: I external/local_xla/xla/stream_executor/cuda/cuda_diagnostics.cc:137] retrieving CUDA diagnostic information for host: intel-spr-i9
+2024-12-10 01:25:26.462467: I external/local_xla/xla/stream_executor/cuda/cuda_diagnostics.cc:144] hostname: intel-spr-i9
+2024-12-10 01:25:26.462505: I external/local_xla/xla/stream_executor/cuda/cuda_diagnostics.cc:168] libcuda reported version is: 535.183.1
+2024-12-10 01:25:26.462513: I external/local_xla/xla/stream_executor/cuda/cuda_diagnostics.cc:172] kernel reported version is: 535.183.1
+2024-12-10 01:25:26.462515: I external/local_xla/xla/stream_executor/cuda/cuda_diagnostics.cc:259] kernel version seems to match DSO: 535.183.1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1733774126.504780 2270080 mlir_graph_optimization_pass.cc:401] MLIR V1 optimization pass is not enabled
+INFO:main:starting TestScenario.Offline
+TestScenario.Offline qps=6.67, mean=1.9645, time=2.400, acc=76.000%, queries=16, tiles=50.0:2.1716,80.0:2.2885,90.0:2.3066,95.0:2.3305,99.0:2.3507,99.9:2.3553
